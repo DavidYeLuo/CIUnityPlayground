@@ -44,11 +44,9 @@ jobs:
         with:
           name: Build
           path: build
-          
-      - uses: unzip ./build/Build.zip
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/Build
+          publish_dir: Build
