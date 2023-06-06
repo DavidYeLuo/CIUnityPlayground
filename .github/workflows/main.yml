@@ -44,7 +44,22 @@ jobs:
         with:
           name: Build
           path: build
-      # Deploy to GitHub Pages
+          
+      - name: Create deployment branch
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "<>"
+          git checkout -b deploy
+
+      - name: Extract build.zip
+        run: unzip build.zip -d build
+
+      - name: Commit and push extracted files
+        run: |
+          git add .
+          git commit -m "Deploy extracted files"
+          git push origin deploy
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
