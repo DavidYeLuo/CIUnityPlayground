@@ -12,6 +12,6 @@ public class TestFoo
     {
         // Use the Assert class to test conditions
         ReturnTrue returnTrueObject = new ReturnTrue();
-        Assert.AreEqual(returnTrueObject.foo(), true);
+        Assert.AreEqual(true, returnTrueObject.foo());
     }
 }
